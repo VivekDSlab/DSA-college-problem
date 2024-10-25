@@ -1,0 +1,71 @@
+#include<stdio.h>
+#include<stdlib.h>
+#define MAX 10
+
+int front= -1;
+rear= -1;
+int arr[MAX];
+
+int main()
+{
+    while(1){
+    int choice,value;
+    printf("this ts the queue:");
+    printf("\nEnter 1 for insert value \nEnter 2 for delete value \nEnter 3 for display\n");
+    printf("Enter the value");
+    scanf("%d",&choice);
+
+    switch (choice)
+    {
+    case 1:
+        printf("enter the value for insert:");
+        scanf("%d",&value);
+        enqueue();
+        break;
+    case 2:
+        dequeue();
+        break;
+    case 3:
+        display();
+        break;
+    case 4:
+        return 0;
+    default:
+        printf("entered invalid value");
+    }
+}
+}
+int enqueue(int value){
+if(rear==MAX-1){
+    printf("the queue is full");
+}
+else{
+    if(front==-1)
+        front=0;
+        rear++;
+    arr[rear]=value;
+    }
+}
+
+void dequeue()
+{
+   if(front==-1 || front>rear){
+    printf("the queue is enpty ");
+   }
+   else{
+    printf("the deleting element is %d",arr[front]);
+    front++;
+   }
+}
+
+int display()
+{
+    if (front==-1 || front>rear){
+        printf("the queue is empty");
+    }
+    else{
+          printf("the elements in the queue is:");
+          for(int i=front;i<=0;i++)
+            printf("\n%d",arr[i]);
+    }
+}
